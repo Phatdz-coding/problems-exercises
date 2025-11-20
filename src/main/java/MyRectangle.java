@@ -26,10 +26,12 @@ public class MyRectangle {
 
    public void setBottomLeftPoint(Point2D.Double pt) {
       // fill in the code here
+      bottomLeftPoint = pt;
    }
 
    public void setTopRightPoint(Point2D.Double pt) {
       // fill in the code here
+      topRightPoint = pt;
    }
 
    public Point2D.Double getBottomLeftPoint() {
