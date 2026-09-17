@@ -1,6 +1,5 @@
 target/
 .qodo/
 .vscode/
-src/
 .venv/
 .dist/
