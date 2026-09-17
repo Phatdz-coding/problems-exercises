@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 6 Project Report: Binary Tree Operations</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f4f4f9;
+        }
+        .page {
+            background-color: #fff;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-top: 5px solid #2c3e50;
+            min-height: 1000px; /* Force page-like height */
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        h1 { text-align: center; margin-top: 0; }
+        .note {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffeeba;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        .file-section {
+            margin-bottom: 30px;
+        }
+        .algorithm {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        ul { padding-left: 20px; }
+        code {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .page-break {
+            text-align: center;
+            color: #999;
+            font-size: 0.8em;
+            margin: 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 1: Overview & Theoretical Application -->
+    <div class="page">
+        <h1>Lab 6 Project Report</h1>
+        <h2>Project Overview</h2>
+        <p>This project extends the foundational binary tree structure defined in <code>Tree2.java</code> to implement complex algorithms including tree analytics, expression parsing, and Huffman coding.</p>
+
+        <div class="note">
+            <strong>NOTE:</strong> The 'Tree2.java' and the class 'Node2' is the renamed version of the original 'Tree.java'; the new 'Tree.java' and 'Node.java' are the separated classes from the original 'TreeApp.java'; the reason I renamed and separated them is to prevent package and class conflictions in 'Lab6' folder.
+        </div>
+
+        <div class="file-section">
+            <h3>1. Problem1234.java: Tree Analytics</h3>
+            <p>Focuses on recursive properties of binary trees. It provides essential metrics for evaluating tree structures.</p>
+            <div class="algorithm">
+                <strong>Core Algorithms:</strong>
+                <ul>
+                    <li><strong>Node Counting:</strong> Recursive traversal to sum all non-null nodes.</li>
+                    <li><strong>Height Calculation:</strong> Determines the maximum depth of the tree (leaf = 0).</li>
+                    <li><strong>Balance Detection:</strong> Checks if the absolute difference in height between left and right subtrees is &le; 1 across all nodes.</li>
+                    <li><strong>Identity Verification:</strong> Deep comparison of two trees to ensure structural and value equality.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="file-section">
+            <h3>2. Section7_8.java: Expression Trees & Prefix Conversion</h3>
+            <p>Handles the transformation between arithmetic expression trees and Prefix (Polish) notation.</p>
+            <div class="algorithm">
+                <strong>Design Strategy:</strong>
+                <ul>
+                    <li><strong>Prefix Conversion:</strong> Uses recursion to traverse the tree (Operator -> Left -> Right) and push values/operators onto a global stack.</li>
+                    <li><strong>Tree Reconstruction:</strong> Rebuilds the binary tree from a stack-based prefix expression. It utilizes type detection (<code>instanceof</code>) to distinguish between operands (Integers) and operators (Characters).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-break">End of Page 1</div>
+
+    <!-- PAGE 2: Advanced Algorithm & Design Conclusion -->
+    <div class="page">
+        <div class="file-section">
+            <h3>3. Huffman.java: Data Compression Algorithm</h3>
+            <p>Implements the Huffman coding algorithm for optimal prefix-free data encoding based on character frequency.</p>
+            <div class="algorithm">
+                <strong>Huffman Workflow:</strong>
+                <ul>
+                    <li><strong>Frequency Mapping:</strong> Scans the input message to create a dictionary of character counts, sorted in ascending order.</li>
+                    <li><strong>Priority Queue Construction:</strong> Utilizes a <code>PriorityQueue</code> (Min-Heap behavior) to store nodes ordered by their frequency value.</li>
+                    <li><strong>Tree Building:</strong> Repeatedly extracts the two nodes with the lowest frequency, combines them into a parent node (sum of frequencies), and re-inserts the parent into the queue until only the root remains.</li>
+                    <li><strong>Encoding:</strong> Generates unique binary paths for each character, ensuring high-frequency symbols have shorter paths.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Design Principles & Architecture</h2>
+        <ul>
+            <li><strong>Inheritance:</strong> All three modules extend <code>Tree2</code>, leveraging its base methods for node creation and printing while specializing functionality.</li>
+            <li><strong>Recursion:</strong> The project heavily relies on recursive design patterns, which is the most natural approach for hierarchical data structures like binary trees.</li>
+            <li><strong>Polymorphism in Nodes:</strong> The <code>Node2</code> class is designed to hold either numerical values or operator characters, managed through type-specific node constructors.</li>
+            <li><strong>Conflict Management:</strong> The renaming and separation of classes (as noted in the project setup) ensures modularity and prevents namespace collisions within the <code>Lab6</code> package.</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>The Lab 6 package demonstrates a comprehensive understanding of binary trees, from simple structural analysis to complex real-world applications like expression parsing and lossless data compression. The modular design allows for easy extension and testing of individual algorithms.</p>
+    </div>
+
+</body>
+</html>
